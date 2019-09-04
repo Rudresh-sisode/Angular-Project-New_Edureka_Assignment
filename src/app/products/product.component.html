@@ -1,7 +1,9 @@
 
-<div class="container">
-<h2 [ngStyle]="{color:getColor()}" [ngClass]="{online: serverStatus === 'Online'}">server status is {{serverStatus}}</h2>
 
+    
+<h2 [ngStyle]="{color:getColor()}" [ngClass]="{online: serverStatus === 'Online'}">server status is {{serverStatus}}</h2>
+<div class="container"></div>
+<div class="container">
 <div class="panel panel-primary">
     <div class="panel-heading">
         {{title}}
@@ -56,7 +58,10 @@
                         *ngIf='showImage'/></td>
                        
                         <td>
+                            <a [routerLink]="['/product',prod.productId]"
+                            [queryParams]="{name:prod.productName,img:prod.imageUrl,desc:prod.description}">
                             {{prod.productName | myPipe:'upper '}}
+                        </a>
                         </td>
                         <td>
                              {{prod.productCode}}
